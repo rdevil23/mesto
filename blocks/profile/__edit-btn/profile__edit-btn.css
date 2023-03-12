@@ -10,6 +10,11 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  padding: 12px;
+  background-image: url(../../../images/buttons/edit-btn.svg);
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .profile__edit-btn:hover {
@@ -20,8 +25,6 @@
   .profile__edit-btn {
     width: 18px;
     height: 18px;
-    margin-top: 6px;
-    margin-left: 10px;
-    transform: translate(14px);
+    margin: 0;
   }
 }

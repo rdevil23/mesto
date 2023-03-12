@@ -9,6 +9,10 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  background-image: url(../../../images/buttons/add-btn.svg);
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .profile__add-btn:hover {

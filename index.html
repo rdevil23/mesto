@@ -17,17 +17,6 @@
 </head>
 
 <body class="page">
-  <section class="popup">
-    <div class="popup__container">
-      <img class="popup__close-btn" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__edit-form">
-        <input class="popup__input popup__input_type_name" type="text">
-        <input class="popup__input popup__input_type_job" type="text">
-        <input class="popup__save-btn" type="submit" value="Сохранить">
-      </form>
-    </div>
-  </section>
 
   <header class="header">
     <img class="header__logo" src="./images/logo/logo.svg" alt="Карта россии">
@@ -39,15 +28,11 @@
       <div class="profile__info">
         <div class="profile__top-str">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <div class="profile__edit-btn">
-            <img src="./images/buttons/edit-btn.svg" alt="Кнопка редактирования профиля">
-          </div>
+          <button class="profile__edit-btn" type="button" aria-label="Кнопка редактирования профиля"></button>
         </div>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <div class="profile__add-btn">
-        <img src="./images/buttons/add-btn.svg" alt="Кнопка редактирования профиля">
-      </div>
+      <button class="profile__add-btn" type="button" aria-label="Кнопка добавления поста"></button>
     </section>
 
 
@@ -56,59 +41,64 @@
         <li class="elements__item">
           <img class="elements__img" src="./images/elements/baikal.jpg" alt="Вид на горы с озера Байкал">
           <div class="elements__info">
-            <p class="elements__text">Байкал</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Байкал</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
         <li class="elements__item">
           <img class="elements__img" src="./images/elements/elbrus.jpg" alt="Гора Эльбрус">
           <div class="elements__info">
-            <p class="elements__text">Гора Эльбрус</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Гора Эльбрус</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
         <li class="elements__item">
           <img class="elements__img" src="./images/elements/ergaki.jpg" alt="Горные системы и хребты Ергаки">
           <div class="elements__info">
-            <p class="elements__text">Горные системы и хребты Ергаки</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Горные системы и хребты Ергаки</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
         <li class="elements__item">
           <img class="elements__img" src="./images/elements/mountain.jpg" alt="Горы в облаках">
           <div class="elements__info">
-            <p class="elements__text">Горы где-то</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Горы где-то</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
         <li class="elements__item">
           <img class="elements__img" src="./images//elements/baikal2.jpg" alt="Мыс Хобой на озере Байкал">
           <div class="elements__info">
-            <p class="elements__text">Мыс Хобой на озере Байкал</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Мыс Хобой на озере Байкал</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
         <li class="elements__item">
           <img class="elements__img" src="./images/elements/kamchatka2.jpg" alt="Авачинский вулкан на Камчатке">
           <div class="elements__info">
-            <p class="elements__text">Авачинский вулкан на Камчатке</p>
-            <img class="elements__like elements__like_active" src="./images/buttons/btn-like.svg"
-              alt="кнопка 'нравится'">
+            <h3 class="elements__text">Авачинский вулкан на Камчатке</h3>
+            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
           </div>
         </li>
       </ul>
     </section>
+
+    <footer class="footer">
+      <p class="footer__copyright">© 2023. Mesto Russia</p>
+    </footer>
+
+    <section class="popup">
+      <div class="popup__container">
+        <img class="popup__close-btn" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__edit-form" name="popup-form">
+          <input class="popup__input popup__input_type_name" name="name" type="text">
+          <input class="popup__input popup__input_type_job" name="job" type="text">
+          <input class="popup__save-btn" type="submit" value="Сохранить">
+        </form>
+      </div>
+    </section>
   </main>
-
-  <footer class="footer">
-    <p class="footer__copyright">© 2023. Mesto Russia</p>
-  </footer>
-
   <script src="./scripts/script.js"></script>
 </body>
 

@@ -18,7 +18,6 @@ const openPopup = function () {
 };
 
 const closePopup = function (e) {
-  console.log(e.target, e.currentTarget);
   if (e.target !== e.currentTarget) {
     return;
   }

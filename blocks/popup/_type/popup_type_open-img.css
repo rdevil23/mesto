@@ -1,0 +1,17 @@
+@keyframes bg-cards-opacity {
+  0% {
+    background-color: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.9);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.popup_type_open-img {
+  animation: bg-cards-opacity 0.5s forwards;
+  transition: visibility 1s, opacity 1.5s linear;
+}

@@ -35,53 +35,11 @@
       <button class="profile__add-btn" type="button" aria-label="Кнопка добавления поста"></button>
     </section>
 
-
     <section class="elements" aria-label="Фотогалерея">
-      <ul class="elements__list">
-        <li class="elements__item">
-          <img class="elements__img" src="./images/elements/baikal.jpg" alt="Вид на горы с озера Байкал">
-          <div class="elements__info">
-            <h3 class="elements__text">Байкал</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__img" src="./images/elements/elbrus.jpg" alt="Гора Эльбрус">
-          <div class="elements__info">
-            <h3 class="elements__text">Гора Эльбрус</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__img" src="./images/elements/ergaki.jpg" alt="Горные системы и хребты Ергаки">
-          <div class="elements__info">
-            <h3 class="elements__text">Горные системы и хребты Ергаки</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__img" src="./images/elements/mountain.jpg" alt="Горы в облаках">
-          <div class="elements__info">
-            <h3 class="elements__text">Горы где-то</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__img" src="./images//elements/baikal2.jpg" alt="Мыс Хобой на озере Байкал">
-          <div class="elements__info">
-            <h3 class="elements__text">Мыс Хобой на озере Байкал</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__img" src="./images/elements/kamchatka2.jpg" alt="Авачинский вулкан на Камчатке">
-          <div class="elements__info">
-            <h3 class="elements__text">Авачинский вулкан на Камчатке</h3>
-            <button class="elements__like elements__like_active" type="button" aria-label="кнопка 'нравится'"></button>
-          </div>
-        </li>
-      </ul>
+      <ul class="elements__list"></ul>
     </section>
+
+
 
     <footer class="footer">
       <p class="footer__copyright">© 2023. Mesto Russia</p>
@@ -98,7 +56,41 @@
         </form>
       </div>
     </section>
+
+    <section class="popup add-popup">
+      <div class="popup__container">
+        <img class="popup__close-btn close-add-popup" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__edit-form add-form" name="popup-form">
+          <input class="popup__input popup__input_type_title" name="title" type="text" placeholder="Название">
+          <input class="popup__input popup__input_type_link" name="link" type="text" placeholder="Ссылка на картинку">
+          <input class="popup__save-btn create-btn" type="submit" value="Создать">
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_open-img">
+      <div class="popup__img-container">
+        <img class="popup__close-btn popup__close-btn_type_img" src="./images/buttons/close-btn.svg"
+          alt="Кнопка закрытия попапа">
+        <img class="popup__img" src="#" alt="#">
+        <h3 class="popup__img-title"></h3>
+      </div>
+    </section>
   </main>
+
+  <template id="elements-template">
+    <li class="elements__item">
+      <img src="./images/buttons/delete-btn.svg" class="elements__delete" alt="кнопка 'удалить'" />
+      <img class="elements__img">
+      <div class="elements__info">
+        <h3 class="elements__text"></h3>
+        <button class="elements__like" type="button" aria-label="кнопка 'нравится'"></button>
+      </div>
+    </li>
+  </template>
+
+  <script src="./scripts/elements.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 

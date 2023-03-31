@@ -1,26 +1,26 @@
 const elements = [
   {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
+  },
+  {
     name: 'Байкал',
-    link: '../images/elements/baikal.jpg',
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: '../images/elements/elbrus.jpg',
-  },
-  {
-    name: 'Горные системы и хребты Ергаки',
-    link: '../images/elements/ergaki.jpg',
-  },
-  {
-    name: 'Горы в Сочи',
-    link: '../images/elements/mountain.jpg',
-  },
-  {
-    name: 'Авачинский вулкан на Камчатке',
-    link: '../images/elements/kamchatka2.jpg',
-  },
-  {
-    name: 'Мыс Хобой на озере Байкал',
-    link: '../images/elements/baikal2.jpg',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];

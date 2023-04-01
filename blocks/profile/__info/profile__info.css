@@ -9,6 +9,6 @@
   .profile__info {
     align-items: center;
     margin: 26px auto 36px;
-    width: 282px;
+    max-width: 282px;
   }
 }

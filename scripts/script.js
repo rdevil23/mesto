@@ -1,17 +1,15 @@
 const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
+const profilePopup = document.querySelector('.profile-popup');
 const addPopup = document.querySelector('.add-popup');
-const popupContainer = popup.querySelector('.popup__container');
-const popupEditForm = popupContainer.querySelector('.popup__edit-form');
+const popupEditForm = document.querySelector('.popup__edit-form');
 const addForm = addPopup.querySelector('.add-form');
 const popupImgContainer = document.querySelector('.popup_type_open-img');
 const popupImage = popupImgContainer.querySelector('.popup__img');
 const popupTitle = popupImgContainer.querySelector('.popup__img-title');
-const popupClose = popupImgContainer.querySelector('.popup__close-btn_type_img');
-const cardImg = document.querySelector('.elements__img');
 
 const editBtn = document.querySelector('.profile__edit-btn');
-const closeBtn = document.querySelector('.popup__close-btn');
-const closeAddPopupBtn = document.querySelector('.close-add-popup');
+const closeBtn = document.querySelectorAll('.popup__close-btn');
 const addBtn = document.querySelector('.profile__add-btn');
 const createBtn = document.querySelector('.create-btn');
 const likeBtn = document.querySelector('.elements__like');
@@ -28,33 +26,25 @@ const profileJob = document.querySelector('.profile__job');
 const elementsTemplate = document.querySelector('#elements-template').content;
 const elementsList = document.querySelector('.elements__list');
 
-// попап редактирования профиля
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-// попап добавления карточки
-const addCard = function (e) {
-  e.preventDefault();
-  addPopup.classList.add('popup_opened');
-};
-
-// закрыть попап
-function closePopup(e) {
-  if (e.target !== e.currentTarget) {
-    return;
-  }
-
-  addPopup.classList.remove('popup_opened');
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popupImgContainer.classList.remove('popup_opened');
 }
 
-function activeLike(likeBtn) {
-  likeBtn.target.classList.toggle('elements__like_active');
-}
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__close-btn')) {
+      closePopup(popup);
+    }
+  });
+});
 
-// добавление карточек из массива
 function renderElement({ name, link }) {
   const htmlElement = elementsTemplate.cloneNode(true);
   htmlElement.querySelector('.elements__text').textContent = name;
@@ -65,7 +55,6 @@ function renderElement({ name, link }) {
   return htmlElement;
 }
 
-// Открыть картинку
 function showPopupImgCard(name, link) {
   popupTitle.textContent = name;
   popupImage.src = link;
@@ -77,7 +66,11 @@ elements.forEach((name, link) => {
   elementsList.append(renderElement(name, link));
 });
 
-// добавление карточки через попап
+function addCard(e) {
+  e.preventDefault();
+  openPopup(addPopup);
+}
+
 function addUserCard(data) {
   elementsList.prepend(data);
 }
@@ -85,7 +78,7 @@ function addUserCard(data) {
 function handleAddCard(e) {
   e.preventDefault();
   addUserCard(renderElement({ name: inputTitle.value, link: inputLink.value }));
-  closePopup(e);
+  closePopup(addPopup);
   addForm.reset();
 }
 
@@ -93,12 +86,16 @@ function handleFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup(e);
+  closePopup(profilePopup);
 }
 
 function handleDelete(e) {
   const card = e.target.closest('.elements__item');
   card.remove();
+}
+
+function activeLike(likeBtn) {
+  likeBtn.target.classList.toggle('elements__like_active');
 }
 
 function handleLike(e) {
@@ -117,13 +114,9 @@ editBtn.addEventListener('click', () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 });
-closeBtn.addEventListener('click', closePopup);
-closeAddPopupBtn.addEventListener('click', closePopup);
-popupClose.addEventListener('click', closePopup);
+
 addBtn.addEventListener('click', addCard);
-popup.addEventListener('click', closePopup);
-addPopup.addEventListener('click', closePopup);
-addForm.addEventListener('submit', renderElement);
 createBtn.addEventListener('click', handleAddCard);
+
+addForm.addEventListener('submit', renderElement);
 popupEditForm.addEventListener('submit', handleFormSubmit);
-popupImgContainer.addEventListener('click', closePopup);

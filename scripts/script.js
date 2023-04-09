@@ -28,10 +28,22 @@ const elementsList = document.querySelector('.elements__list');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+}
+
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    popups.forEach((popup) => {
+      if (popup.classList.contains('popup_opened')) {
+        closePopup(popup);
+      }
+    });
+  }
 }
 
 popups.forEach((popup) => {

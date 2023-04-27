@@ -90,6 +90,7 @@ function createCard(data) {
 
 // открытие попапа для создания новой карточки
 function openAddCardPopup(e) {
+  addCardValidation.removeInputErrors();
   e.preventDefault();
   openPopup(addPopup);
 }
@@ -113,6 +114,7 @@ function handleFormSubmit(e) {
 
 // подгрузка текущих данных профиля в инпуты
 editBtn.addEventListener('click', () => {
+  profileValidation.removeInputErrors();
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(popup);

@@ -46,14 +46,20 @@ export default class FormValidator {
   // метод переключения состояние кнопки
   _toggleButtonState() {
     if (this._hasInvalidInput(this._inputList)) {
-      this._submitButton.classList.add(this._inactiveButtonClass);
-      this._submitButton.setAttribute('disabled', true);
+      this._disableButton();
     } else {
       this._submitButton.classList.remove(this._inactiveButtonClass);
       this._submitButton.removeAttribute('disabled');
     }
   }
 
+  // отключенная кнопка
+  _disableButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.setAttribute('disabled', true);
+  }
+
+  // метод проверки вводимых данных
   _setValidListeners() {
     this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
@@ -66,5 +72,18 @@ export default class FormValidator {
 
   enableValidation() {
     this._setValidListeners();
+  }
+
+  // метод удаления ошибок в инпутах при повторном открытии попапов
+  removeInputErrors() {
+    this._inputList.forEach((inputElement) => {
+      const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
+
+      if (!inputElement.validity.valid) {
+        this._hideError(errorElement, inputElement);
+      }
+    });
+    // отключение кнопки во избежании отправки пустой карточки
+    this._disableButton();
   }
 }

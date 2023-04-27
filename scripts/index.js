@@ -50,13 +50,10 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closePopupEsc);
 }
 
-function closePopupEsc(evt) {
-  if (evt.key === 'Escape') {
-    popups.forEach((popup) => {
-      if (popup.classList.contains('popup_opened')) {
-        closePopup(popup);
-      }
-    });
+function closePopupEsc(e) {
+  if (e.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
   }
 }
 

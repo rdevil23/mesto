@@ -16,6 +16,7 @@ export default class Card {
   // метод удаления карточки
   _onDelete = () => {
     this._element.remove();
+    this._element = null;
   };
 
   // метод лайка карточки

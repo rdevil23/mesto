@@ -7,31 +7,26 @@
   <meta name="description" content="Проектная работа №6">
   <meta name="keywords" content="Россия, места, галерея, фото">
   <meta name="author" content="Дмитрий Подольян">
-  <link rel="stylesheet" href="./pages/index.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./images/favicon_io/android-chrome-192x192.png">
-  <link rel="manifest" href="./images/favicon_io/site.webmanifest">
   <title>Mesto Russia</title>
-  <script defer type="module" src="./scripts/index.js"></script>
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="./images/logo/logo.svg" alt="Карта россии">
+    <img class="header__logo" src="<%=require('./images/logo/logo.svg')%>" alt="Карта россии">
   </header>
 
   <main>
     <section class="profile" aria-label="Раздел профиля">
-      <img class="profile__avatar" src="./images/ava.jpg" alt="Ваша аватарка">
+      <button class="profile__avatar-edit-btn" type="button" aria-label="Кнопка изменения аватара">
+        <img class="profile__avatar" src="" alt="Ваша аватарка">
+      </button>
       <div class="profile__info">
         <div class="profile__top-str">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button class="profile__edit-btn" type="button" aria-label="Кнопка редактирования профиля"></button>
         </div>
-        <p class="profile__job">Исследователь океана</p>
+        <p class="profile__job"></p>
       </div>
       <button class="profile__add-btn" type="button" aria-label="Кнопка добавления поста"></button>
     </section>
@@ -46,13 +41,13 @@
 
     <section class="popup profile-popup">
       <div class="popup__container">
-        <img class="popup__close-btn" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
+        <img class="popup__close-btn" src="<%=require('./images/buttons/close-btn.svg')%>" alt="Кнопка закрытия попапа">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__edit-form" name="edit-form" novalidate>
           <input class="popup__input popup__input_type_name" id="input-name" name="name" type="text" minlength="2"
             maxlength="40" required>
           <span class="popup__input-error name-error" id="input-name-error"></span>
-          <input class="popup__input popup__input_type_job" id="input-job" name="job" type="text" minlength="2"
+          <input class="popup__input popup__input_type_job" id="input-job" name="about" type="text" minlength="2"
             maxlength="200" required>
           <span class="popup__input-error job-error" id="input-job-error"></span>
           <button class="popup__save-btn" type="submit">Сохранить</button>
@@ -60,12 +55,25 @@
       </div>
     </section>
 
+    <section class="popup avatar-popup">
+      <div class="popup__container">
+        <img class="popup__close-btn" src="<%=require('./images/buttons/close-btn.svg')%>" alt="Кнопка закрытия попапа">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__edit-form avatar-form" name="avatar-form" novalidate>
+          <input class="popup__input popup__input_type_link" id="input-link" name="avatar" type="url"
+            placeholder="Ссылка на аватар" required>
+          <span class="popup__input-error link-error" id="input-link-error"></span>
+          <button class="popup__save-btn" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup add-popup">
       <div class="popup__container">
-        <img class="popup__close-btn" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
+        <img class="popup__close-btn" src="<%=require('./images/buttons/close-btn.svg')%>" alt="Кнопка закрытия попапа">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__edit-form add-form" name="add-form" novalidate>
-          <input class="popup__input popup__input_type_title" id="input-title" name="title" type="text"
+          <input class="popup__input popup__input_type_title" id="input-title" name="name" type="text"
             placeholder="Название" minlength="2" maxlength="30" required>
           <span class="popup__input-error title-error" id="input-title-error"></span>
           <input class="popup__input popup__input_type_link" id="input-link" name="link" type="url"
@@ -76,9 +84,19 @@
       </div>
     </section>
 
+    <section class="popup confirm-popup">
+      <div class="popup__container">
+        <img class="popup__close-btn" src="<%=require('./images/buttons/close-btn.svg')%>" alt="Кнопка закрытия попапа">
+        <h3 class="popup__title">Вы уверены?</h3>
+        <form class="popup__edit-form popup__confirm" name="popup-confirmation-form" novalidate>
+          <button class="popup__save-btn" type="submit">Да</button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup popup_type_open-img">
       <div class="popup__img-container">
-        <img class="popup__close-btn" src="./images/buttons/close-btn.svg" alt="Кнопка закрытия попапа">
+        <img class="popup__close-btn" src="<%=require('./images/buttons/close-btn.svg')%>" alt="Кнопка закрытия попапа">
         <img class="popup__img" src="#" alt="#">
         <h3 class="popup__img-title"></h3>
       </div>
@@ -87,11 +105,14 @@
 
   <template id="elements-template">
     <li class="elements__item">
-      <img src="./images/buttons/delete-btn.svg" class="elements__delete" alt="кнопка 'удалить'" />
+      <img src="<%=require('./images/buttons/delete-btn.svg')%>" class="elements__delete" alt="кнопка 'удалить'" />
       <img class="elements__img">
       <div class="elements__info">
         <h3 class="elements__text"></h3>
-        <button class="elements__like" type="button" aria-label="кнопка 'нравится'"></button>
+        <div class="elements__likes-wrapper">
+          <button class="elements__like" type="button" aria-label="кнопка 'нравится'"></button>
+          <p class="elements__likes-counter"></p>
+        </div>
       </div>
     </li>
   </template>
